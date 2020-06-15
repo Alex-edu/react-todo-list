@@ -1,26 +1,86 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
+import Header from './scripts/Header'
+import MainSection from './scripts/MainSection'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const initialState = [
+  {
+    text: 'react easy todo-list',
+    completed: false,
+    id: 0
+  }
+]
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      todos: initialState,
+      gameID: null,
+      player: 0
+    }
+  }
+
+  addTodo = (text) => {
+    const todos = [
+      {
+        id: this.state.todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
+        completed: false,
+        text: text
+      },
+      ...this.state.todos
+    ]
+    this.setState({todos})
+  }
+
+  deleteTodo = (id) => {
+    const todos = this.state.todos.filter(todo => todo.id !== id)
+    this.setState({todos})
+  }
+
+  editTodo = (id, text) => {
+    const todos = this.state.todos.map(todo =>
+      todo.id === id ? {...todo, text} : todo
+    )
+    this.setState({todos})
+  }
+
+  completeTodo = (id) => {
+    const todos = this.state.todos.map(todo =>
+      todo.id === id ? {...todo, completed: !todo.completed} : todo
+    )
+    this.setState({todos})
+  }
+
+  completeAll = () => {
+    const areAllMarked = this.state.todos.every(todo => todo.completed)
+    const todos = this.state.todos.map(todo => {
+      return {...todo, completed: !areAllMarked}
+    })
+    this.setState({todos})
+  }
+
+  clearCompleted = () => {
+    const todos = this.state.todos.filter(todo => todo.completed === false)
+    this.setState({todos})
+  }
+
+  actions = {
+    addTodo: this.addTodo,
+    deleteTodo: this.deleteTodo,
+    editTodo: this.editTodo,
+    completeTodo: this.completeTodo,
+    completeAll: this.completeAll,
+    clearCompleted: this.clearCompleted
+  }
+
+  render() {
+    return(
+      <div>
+        <Header addTodo={this.actions.addTodo} />
+        <MainSection todos={this.state.todos} actions={this.actions} />
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
