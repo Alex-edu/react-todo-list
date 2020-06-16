@@ -1,3 +1,8 @@
+### Preview
+
+![image](https://github.com/hadabr/assets/blob/master/todo-react/ezgif-3-997f59c8b660.gif)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
