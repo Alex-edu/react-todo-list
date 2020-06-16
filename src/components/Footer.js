@@ -23,7 +23,7 @@ export default class Footer extends Component {
 
     return (
       <span className="todo-count">
-        <strong>{activeCount || 'No'}</strong>
+        <strong>{activeCount || 'No '}</strong>
         {itemWord} left
       </span>
     )
@@ -34,13 +34,12 @@ export default class Footer extends Component {
     const {filter: selectedFilter, onShow} = this.props
 
     return (
-      <a
+      <button
         className={classnames({ selected: filter === selectedFilter })}
         style={{cursor: 'pointer' }}
         onClick={() => onShow(filter)}>
         {title}
-        href = "#"
-      </a>
+      </button>
     )
   }
 

@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import TodoTextInput from './TodoTextInput'
+import TodoTextInput from './todoInput'
 
 const Header = ({addTodo}) => {
 
@@ -11,11 +11,11 @@ const Header = ({addTodo}) => {
 
   return (
     <header className="header">
-      <h1>todos</h1>
+      <h1>Easy todo</h1>
       <TodoTextInput
         newTodo
         onSave={handleSave}
-        placeholder="What needs to be done?"
+        placeholder="What's next?"
       />
     </header>
   )

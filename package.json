@@ -1,49 +1,32 @@
 {
-  "name": "todo-list",
+  "name": "easy-todo-list",
   "version": "0.1.0",
-  "homepage": "https://alex-edu.github.io/react-todo-list/",
   "private": true,
+  "homepage": "react.js-todo-list",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "classnames": "^2.2.6",
+    "bootstrap": "^4.3.1",
     "node-sass": "^4.14.1",
-    "gh-pages": "^2.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "gh-pages": "^2.1.1",
+    "npm-run-all": "^4.1.1",
+    "classnames": "^2.2.6"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "clean": "rm -rf build",
-    "pre-deploy": "run-s clean clean:styles build:styles prefix:css copy",
-    "publish": "gh-pages -d build",
-    "clean:styles": "rm -rf src/styles",
-    "copy": "mkdir dist && rsync -avr --exclude=\"/scss\" src/ dist",
-    "deploy": "run-s pre-deploy publish"
+    "deploy": "run-s build publish",
+    "publish": "gh-pages -d build"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "shared-config"
-    ],
-    "rules": {
-      "additional-rule": "warn"
-    },
-    "overrides": [
-      {
-        "files": [
-          "**/*.ts?(x)"
-        ],
-        "rules": {
-          "additional-typescript-only-rule": "warn"
-        }
-      }
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [

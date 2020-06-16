@@ -23,7 +23,6 @@ button {
 body {
 	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
-	background: #f5f5f5;
 	color: #4d4d4d;
 	min-width: 230px;
 	max-width: 550px;
@@ -74,7 +73,7 @@ body {
 	font-size: 100px;
 	font-weight: 100;
 	text-align: center;
-	color: rgba(175, 47, 47, 0.15);
+	color: rgba(14, 92, 102, 0.15);
 	-webkit-text-rendering: optimizeLegibility;
 	-moz-text-rendering: optimizeLegibility;
 	text-rendering: optimizeLegibility;
@@ -298,7 +297,7 @@ body {
 	display: inline;
 }
 
-.filters li a {
+.filters li button {
 	color: inherit;
 	margin: 3px;
 	padding: 3px 7px;
@@ -307,11 +306,11 @@ body {
 	border-radius: 3px;
 }
 
-.filters li a:hover {
+.filters li button:hover {
 	border-color: rgba(175, 47, 47, 0.1);
 }
 
-.filters li a.selected {
+.filters li button.selected {
 	border-color: rgba(175, 47, 47, 0.2);
 }
 

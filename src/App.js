@@ -1,13 +1,8 @@
 import React, {Component} from 'react'
-import Header from './scripts/Header'
-import MainSection from './scripts/MainSection'
+import Header from './components/header'
+import MainSection from './components/mainSection'
 
 const initialState = [
-  {
-    text: 'react easy todo-list',
-    completed: false,
-    id: 0
-  }
 ]
 
 class App extends Component {
@@ -29,12 +24,12 @@ class App extends Component {
       },
       ...this.state.todos
     ]
-    this.setState({todos})
+    this.setState({todos});
   }
 
   deleteTodo = (id) => {
     const todos = this.state.todos.filter(todo => todo.id !== id)
-    this.setState({todos})
+    this.setState({todos});
   }
 
   editTodo = (id, text) => {
